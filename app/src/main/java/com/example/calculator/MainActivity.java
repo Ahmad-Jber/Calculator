@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             if (value1.getText().toString().equals("")){
                 value1.setError("Please Enter missing value");
             }else if(value2.getText().toString().equals("")){
-                value1.setError("Please Enter missing value");
+                value2.setError("Please Enter missing value");
             } else{
                 operation.setText("+");
                 float x = Float.parseFloat(value1.getText().toString());
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             if (value1.getText().toString().equals("")){
                 value1.setError("Please Enter missing value");
             }else if(value2.getText().toString().equals("")){
-                value1.setError("Please Enter missing value");
+                value2.setError("Please Enter missing value");
             }else {
                 operation.setText("-");
                 float x = Float.parseFloat(value1.getText().toString());
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             if (value1.getText().toString().equals("")){
                 value1.setError("Please Enter missing value");
             }else if(value2.getText().toString().equals("")){
-                value1.setError("Please Enter missing value");
+                value2.setError("Please Enter missing value");
             }else {
                 operation.setText("×");
                 float x = Float.parseFloat(value1.getText().toString());
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             if (value1.getText().toString().equals("")){
                 value1.setError("Please Enter missing value");
             }else if(value2.getText().toString().equals("")){
-                value1.setError("Please Enter missing value");
+                value2.setError("Please Enter missing value");
             }else {
                 operation.setText("/");
                 float x = Float.parseFloat(value1.getText().toString());

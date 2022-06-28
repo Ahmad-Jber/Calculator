@@ -63,7 +63,6 @@
                 android:digits="0123456789"
                 android:inputType="phone" />
             <EditText
-
                 android:id="@+id/value2"
                 android:layout_weight="1"
                 android:textSize="100dp"
@@ -107,6 +106,7 @@
                 android:text="+"
                 android:textSize="50dp"/>
             <Button
+
                 android:id="@+id/multi"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
