@@ -8,12 +8,9 @@
     android:weightSum="4"
     android:orientation="vertical"
     android:layoutDirection="ltr">
-    <LinearLayout
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
         <LinearLayout
             android:weightSum="3"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -22,40 +19,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="A"
-                android:textSize="100dp"
-                android:textAlignment="center"/>
+                android:textSize="100sp"
+                android:gravity="center"/>
             <TextView
                 android:id="@+id/operation"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="100dp"
+                android:textSize="100sp"
                 android:text="\?"
-                android:textAlignment="center"/>
+                android:gravity="center"/>
             <TextView
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="B"
-                android:textAlignment="center"
-                android:textSize="100dp"/>
+                android:gravity="center"                android:textSize="100sp"/>
         </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:weightSum="2">
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:orientation="horizontal"
             android:weightSum="2">
             <EditText
                 android:id="@+id/value1"
                 android:layout_weight="1"
-                android:textSize="100dp"
+                android:textSize="100sp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="A"
@@ -65,27 +55,24 @@
             <EditText
                 android:id="@+id/value2"
                 android:layout_weight="1"
-                android:textSize="100dp"
+                android:textSize="100sp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="B"
                 android:textAlignment="center"
                 android:digits="0123456789"
                 android:inputType="phone"/>
-        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_weight="1"
+
+    <TextView
+        android:id="@+id/res"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/res"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textAlignment="center"
-            android:hint="Result"
-            android:textSize="100dp"/>
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:hint="Result"
+        android:textAlignment="center"
+        android:textSize="100sp" />
+
     <LinearLayout
         android:layout_weight="1"
         android:layout_width="match_parent"
@@ -104,14 +91,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="+"
-                android:textSize="50dp"/>
+                android:textSize="50sp"/>
             <Button
 
                 android:id="@+id/multi"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textSize="50dp"
+                android:textSize="50sp"
                 android:text="×"/>
         </LinearLayout>
         <LinearLayout
@@ -124,7 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textSize="50dp"
+                android:textSize="50sp"
                 android:text="-"
                 />
             <Button
@@ -132,7 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textSize="50dp"
+                android:textSize="50sp"
                 android:text="/"/>
         </LinearLayout>
     </LinearLayout>
