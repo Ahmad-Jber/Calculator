@@ -2,42 +2,78 @@ package com.example.calculator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.View;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
+    EditText value1;
+    EditText value2;
+    TextView result;
+    TextView operation;
+    Button sum;
+    Button sub;
+    Button multi;
+    Button div;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        EditText value1 = findViewById(R.id.value1);
-        EditText value2 = findViewById(R.id.value2);
-        TextView result = findViewById(R.id.res);
-        TextView operation = findViewById(R.id.operation);
-        Button sum = findViewById(R.id.sum);
-        Button sub = findViewById(R.id.sub);
-        Button multi = findViewById(R.id.multi);
-        Button div = findViewById(R.id.div);
-        value1.setOnFocusChangeListener((view, b) -> {
-            if(value1.getText().toString().equals("")){
-                operation.setText("?");
+        value1 = findViewById(R.id.value1);
+        value2 = findViewById(R.id.value2);
+        result = findViewById(R.id.res);
+        operation = findViewById(R.id.operation);
+        sum = findViewById(R.id.sum);
+        sub = findViewById(R.id.sub);
+        multi = findViewById(R.id.multi);
+        div = findViewById(R.id.div);
+        value1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (value1.getText().toString().equals("")) {
+                    operation.setText("?");
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
-        value2.setOnFocusChangeListener((view, b) -> {
-            if(value2.getText().toString().equals("")){
-                operation.setText("?");
-            }
-        });
+       value2.addTextChangedListener(new TextWatcher() {
+           @Override
+           public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+           }
+
+           @Override
+           public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+               if (value2.getText().toString().equals("")) {
+                   operation.setText("?");
+               }
+               result.setText("");
+           }
+
+           @Override
+           public void afterTextChanged(Editable editable) {
+
+           }
+       });
         sum.setOnClickListener(view -> {
-            if (value1.getText().toString().equals("")){
-                value1.setError("Please Enter missing value");
-            }else if(value2.getText().toString().equals("")){
-                value2.setError("Please Enter missing value");
-            } else{
+            if (value1.getText().toString().equals("") && value2.getText().toString().equals("")){
+                    value1.setError("Required");
+                    value2.setError("Require");
+                }
+            else if (value1.getText().toString().equals("")) value1.setError("Required");
+            else if(value2.getText().toString().equals("")) value2.setError("Require");
+            else{
                 operation.setText("+");
                 float x = Float.parseFloat(value1.getText().toString());
                 float y = Float.parseFloat(value2.getText().toString());
@@ -45,10 +81,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         sub.setOnClickListener(view -> {
-            if (value1.getText().toString().equals("")){
-                value1.setError("Please Enter missing value");
-            }else if(value2.getText().toString().equals("")){
-                value2.setError("Please Enter missing value");
+            if (value1.getText().toString().equals("")) value1.setError("Required");
+            else if(value2.getText().toString().equals("")) value2.setError("Require");
+            else if (value1.getText().toString().equals("")&&value2.getText().toString().equals("")){
+                value1.setError("Required");
+                value2.setError("Require");
             }else {
                 operation.setText("-");
                 float x = Float.parseFloat(value1.getText().toString());
@@ -57,10 +94,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         multi.setOnClickListener(view -> {
-            if (value1.getText().toString().equals("")){
-                value1.setError("Please Enter missing value");
-            }else if(value2.getText().toString().equals("")){
-                value2.setError("Please Enter missing value");
+            if (value1.getText().toString().equals("")) value1.setError("Required");
+            else if(value2.getText().toString().equals("")) value2.setError("Require");
+            else if (value1.getText().toString().equals("")&&value2.getText().toString().equals("")){
+                value1.setError("Required");
+                value2.setError("Require");
             }else {
                 operation.setText("×");
                 float x = Float.parseFloat(value1.getText().toString());
@@ -69,10 +107,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         div.setOnClickListener(view -> {
-            if (value1.getText().toString().equals("")){
-                value1.setError("Please Enter missing value");
-            }else if(value2.getText().toString().equals("")){
-                value2.setError("Please Enter missing value");
+            if (value1.getText().toString().equals("")) value1.setError("Required");
+            else if(value2.getText().toString().equals("")) value2.setError("Require");
+            else if (value1.getText().toString().equals("") && value2.getText().toString().equals("")){
+                value1.setError("Required");
+                value2.setError("Require");
             }else {
                 operation.setText("/");
                 float x = Float.parseFloat(value1.getText().toString());
