@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 if (value1.getText().toString().equals("")) {
                     operation.setText("?");
                 }
+                result.setText("");
             }
 
             @Override
@@ -67,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
            }
        });
         sum.setOnClickListener(view -> {
-            if (value1.getText().toString().equals("") && value2.getText().toString().equals("")){
+            if (isEmpty()){
                     value1.setError("Required");
-                    value2.setError("Require");
+                    value2.setError("Required");
                 }
             else if (value1.getText().toString().equals("")) value1.setError("Required");
-            else if(value2.getText().toString().equals("")) value2.setError("Require");
+            else if(value2.getText().toString().equals("")) value2.setError("Required");
             else{
                 operation.setText("+");
                 float x = Float.parseFloat(value1.getText().toString());
@@ -81,12 +82,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         sub.setOnClickListener(view -> {
-            if (value1.getText().toString().equals("")) value1.setError("Required");
-            else if(value2.getText().toString().equals("")) value2.setError("Require");
-            else if (value1.getText().toString().equals("")&&value2.getText().toString().equals("")){
+            if (isEmpty()){
                 value1.setError("Required");
-                value2.setError("Require");
-            }else {
+                value2.setError("Requireda");
+            }
+            else if (value1.getText().toString().equals("")) value1.setError("Required");
+            else if(value2.getText().toString().equals("")) value2.setError("Required");
+            else {
                 operation.setText("-");
                 float x = Float.parseFloat(value1.getText().toString());
                 float y = Float.parseFloat(value2.getText().toString());
@@ -94,12 +96,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         multi.setOnClickListener(view -> {
-            if (value1.getText().toString().equals("")) value1.setError("Required");
-            else if(value2.getText().toString().equals("")) value2.setError("Require");
-            else if (value1.getText().toString().equals("")&&value2.getText().toString().equals("")){
+            if (isEmpty()){
                 value1.setError("Required");
-                value2.setError("Require");
-            }else {
+                value2.setError("Required");
+            }
+            else if (value1.getText().toString().equals("")) value1.setError("Required");
+            else if(value2.getText().toString().equals("")) value2.setError("Required");
+            else {
                 operation.setText("×");
                 float x = Float.parseFloat(value1.getText().toString());
                 float y = Float.parseFloat(value2.getText().toString());
@@ -107,17 +110,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         div.setOnClickListener(view -> {
-            if (value1.getText().toString().equals("")) value1.setError("Required");
-            else if(value2.getText().toString().equals("")) value2.setError("Require");
-            else if (value1.getText().toString().equals("") && value2.getText().toString().equals("")){
+            if (isEmpty()){
                 value1.setError("Required");
-                value2.setError("Require");
-            }else {
+                value2.setError("Required");
+            }
+            else if (value1.getText().toString().equals("")) value1.setError("Required");
+            else if(value2.getText().toString().equals("")) value2.setError("Required");
+            else {
                 operation.setText("/");
                 float x = Float.parseFloat(value1.getText().toString());
                 float y = Float.parseFloat(value2.getText().toString());
                 result.setText(String.valueOf(x / y));
             }
         });
+    }
+    private boolean isEmpty(){
+        return value1.getText().toString().equals("")&&value2.getText().toString().equals("");
     }
 }
